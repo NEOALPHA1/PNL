@@ -127,7 +127,7 @@ do
 			 destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
 
 			 cd /var/www/html/
-			 wget -O wizwizpanel.zip https://github.com/wizwizdev/wizwizxui-timebot/releases/download/9.1.1/wizwizpanel.zip
+			 wget -O wizwizpanel.zip https://github.com/NEOALPHA1/PNL/releases/download/9.0.0/wizwizpanel.zip
 
 			 file_to_transfer="/var/www/html/wizwizpanel.zip"
 			 destination_dir=$(find /var/www/html -type d -name "*wizpanel*" | head -n 1)
@@ -152,7 +152,7 @@ do
 			
 			bot_value=$(cat $filepath | grep '$admin =' | sed 's/.*= //' | sed 's/;//')
 			
-			MESSAGE="🕹 WizWiz panel has been successfully updated!"
+			MESSAGE="🕹 NI panel has been successfully updated!"
 
 			curl -s -X POST "https://api.telegram.org/bot${bot_token}/sendMessage" -d chat_id="${bot_value}" -d text="$MESSAGE"
 			curl -s -X POST "https://api.telegram.org/bot${bot_token2}/sendMessage" -d chat_id="${bot_value}" -d text="$MESSAGE"
