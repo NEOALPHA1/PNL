@@ -16,9 +16,10 @@ echo -e "\e[32m
 ██ ███ ██ ██  ███    ██ ███ ██ ██  ███         ██ ██  ██    ██ ██ 
  ███ ███  ██ ███████  ███ ███  ██ ███████     ██   ██  ██████  ██ 
 \033[0m"
+echo -e "    \e[31mTelegram Channel: \e[34m@wizwizch\033[0m | \e[31mTelegram Group: \e[34m@wizwizdev\033[0m\n"
 
 #sleep
-echo -e "\e[32mInstalling NIN script ... \033[0m\n"
+echo -e "\e[32mInstalling WizWiz script ... \033[0m\n"
 sleep 5
 
 sudo apt update && apt upgrade -y
@@ -246,7 +247,7 @@ wait
 
 echo " "
 
-ROOT_PASSWORD=$(cat /root/confwizwiz/dbroot.txt | grep '$pass' | cut -d"'" -f2)
+ROOT_PASSWORD=$(cat /root/confwizwiz/dbrootwizwiz.txt | grep '$pass' | cut -d"'" -f2)
 ROOT_USER="root"
 echo "SELECT 1" | mysql -u$ROOT_USER -p$ROOT_PASSWORD 2>/dev/null
 
@@ -341,8 +342,16 @@ wait
         sleep 1
         
         sudo rm -r /var/www/html/wizwizxui-timebot/webpanel
-	    sudo rm -r /var/www/html/wizwizxui-timebot/install
-	    sudo rm /var/www/html/wizwizxui-timebot/createDB.php
+        sudo rm -r /var/www/html/wizwizxui-timebot/install
+        sudo rm /var/www/html/wizwizxui-timebot/createDB.php
+	rm /var/www/html/wizwizxui-timebot/updateShareConfig.php
+	rm /var/www/html/wizwizxui-timebot/README.md
+	rm /var/www/html/wizwizxui-timebot/README-fa.md
+	rm /var/www/html/wizwizxui-timebot/LICENSE
+	rm /var/www/html/wizwizxui-timebot/update.sh
+	rm /var/www/html/wizwizxui-timebot/wizwiz.sh
+	rm /var/www/html/wizwizxui-timebot/tempCookie.txt
+	rm /var/www/html/wizwizxui-timebot/settings/messagewizwiz.json
             
         clear
         
