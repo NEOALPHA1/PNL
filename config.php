@@ -161,10 +161,10 @@ $update = json_decode(file_get_contents("php://input"));
 if(isset($update->message)){
     $from_id = $update->message->from->id;
     $text = $update->message->text;
-    $first_name = $update->message->from->first_name;
+    $first_name = htmlspecialchars($update->message->from->first_name);
     $caption = $update->message->caption;
     $chat_id = $update->message->chat->id;
-    $last_name = $update->message->from->last_name;
+    $last_name = htmlspecialchars($update->message->from->last_name);
     $username = $update->message->from->username?? " ندارد ";
     $message_id = $update->message->message_id;
     $forward_from_name = $update->message->reply_to_message->forward_sender_name;
@@ -178,9 +178,9 @@ if(isset($update->callback_query)){
     $message_id = $update->callback_query->message->message_id;
     $chat_id = $update->callback_query->message->chat->id;
     $chat_type = $update->callback_query->message->chat->type;
-    $username = $update->callback_query->from->username?? " ندارد ";
+    $username = htmlspecialchars($update->callback_query->from->username)?? " ندارد ";
     $from_id = $update->callback_query->from->id;
-    $first_name = $update->callback_query->from->first_name;
+    $first_name = htmlspecialchars($update->callback_query->from->first_name);
     $markup = json_decode(json_encode($update->callback_query->message->reply_markup->inline_keyboard),true);
 }
 $stmt = $connection->prepare("SELECT * FROM `users` WHERE `userid`=?");
